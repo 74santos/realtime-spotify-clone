@@ -83,12 +83,13 @@ app.use("/api/songs", songRoutes);
 app.use("/api/albums", albumRoutes);
 app.use("/api/stats", statRoutes);
 
-// if(process.env.NODE_ENV === "production") {
-//   app.use(express.static(path.join(__dirname, "../frontend/dist")));
-//   app.get("*", (req, res) => {
-//     res.sendFile(path.resolve(__dirname, "../frontend", "dist", "index.html"));
-//   });
-// }
+if(process.env.NODE_ENV === "production") {
+  const frontendPath = path.join(__dirname, "../frontend-dist");
+  app.use(express.static(frontendPath));
+  app.get("*", (req, res) => {
+    res.sendFile(path.join(frontendPath, "index.html"));
+  });
+}
 
 // ---------- Error handler ----------
 app.use((err, req, res, next) => {
