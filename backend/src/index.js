@@ -42,7 +42,7 @@ app.use(
 app.use(express.json());
 
 // ---------- Clerk middleware ----------
-app.use(clerkMiddleware());
+// app.use(clerkMiddleware());
 
 // ---------- File uploads ----------
 app.use(
