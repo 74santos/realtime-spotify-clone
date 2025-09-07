@@ -42,7 +42,7 @@ app.use(
 app.use(express.json());
 
 // ---------- Clerk middleware ----------
-// app.use(clerkMiddleware());
+app.use(clerkMiddleware());
 
 // ---------- File uploads ----------
 app.use(
@@ -83,12 +83,12 @@ app.use("/api/songs", songRoutes);
 app.use("/api/albums", albumRoutes);
 app.use("/api/stats", statRoutes);
 
-if(process.env.NODE_ENV === "production") {
-  app.use(express.static(path.join(__dirname, "../frontend/dist")));
-  app.get("*", (req, res) => {
-    res.sendFile(path.resolve(__dirname, "../frontend", "dist", "index.html"));
-  });
-}
+// if(process.env.NODE_ENV === "production") {
+//   app.use(express.static(path.join(__dirname, "../frontend/dist")));
+//   app.get("*", (req, res) => {
+//     res.sendFile(path.resolve(__dirname, "../frontend", "dist", "index.html"));
+//   });
+// }
 
 // ---------- Error handler ----------
 app.use((err, req, res, next) => {
