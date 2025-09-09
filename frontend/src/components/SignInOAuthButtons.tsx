@@ -1,6 +1,5 @@
-import { useSignIn } from "@clerk/clerk-react"
+import { useSignIn } from "@clerk/clerk-react";
 import { Button } from "./ui/button";
-
 
 const SignInOAuthButtons = () => {
   const { signIn, isLoaded } = useSignIn();
@@ -9,20 +8,24 @@ const SignInOAuthButtons = () => {
     return null;
   }
 
-  const signInWithGoogle =  () => {
-   signIn.authenticateWithRedirect({
+  const signInWithGoogle = () => {
+    signIn.authenticateWithRedirect({
       strategy: "oauth_google",
-      redirectUrl:"/sso-callback",
-      redirectUrlComplete: "/auth-callback"
+      redirectUrl: "/sso-callback",
+      redirectUrlComplete: "/auth-callback",
     });
   };
 
-
   return (
-    <Button onClick={signInWithGoogle} variant={'secondary'} className='w-full text-white border-zink-200 h-11 cursor-pointer' >
+    <Button
+      onClick={signInWithGoogle}
+      variant={"secondary"}
+      className="w-full text-white border-zink-200 h-11 cursor-pointer"
+    >
+      <img src="/google.png" alt="Google" className="size-6" />
       Continue with Google
     </Button>
-  )
-}
+  );
+};
 
-export default SignInOAuthButtons
+export default SignInOAuthButtons;
