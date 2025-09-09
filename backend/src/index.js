@@ -31,7 +31,7 @@ initializeSocket(httpServer)
 // ---------- CORS ----------
 app.use(
   cors({
-    origin: "https://realtime-spotify-clone-dze4.onrender.com", // frontend origin
+    origin: "https://realtime-spotify-clone-dze4.onrender.com" || "http://localhost:3000", // frontend origin
     credentials: true,               // allow cookies / Authorization headers
     allowedHeaders: ["Content-Type", "Authorization"],
     methods: ["GET", "HEAD", "PUT", "PATCH", "POST", "DELETE", "OPTIONS"],
