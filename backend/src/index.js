@@ -83,7 +83,7 @@ app.use("/api/songs", songRoutes);
 app.use("/api/albums", albumRoutes);
 app.use("/api/stats", statRoutes);
 
-const frontendPath = path.join(__dirname, "frontend-dist");
+const frontendPath = path.join(__dirname, "../frontend/dist");
 app.use(express.static(frontendPath));
 app.get("*", (req, res) => {
   res.sendFile(path.join(frontendPath, "index.html"));
